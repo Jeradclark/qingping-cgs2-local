@@ -1,7 +1,6 @@
 # 03. Music Assistant: use the speaker as a player
 
-Music plays from Music Assistant through the device's speaker on one
-unit (firmware 4.5.6_0167), and the boot hook starts the player after a
+Music plays from Music Assistant through the device's speaker and the boot hook starts the player after a
 reboot.
 
 The device becomes a [Squeezelite](https://github.com/ralph-irving/squeezelite)

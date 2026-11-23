@@ -1,6 +1,6 @@
 # 02. Light sensor to MQTT and Home Assistant
 
-The ambient-light reading, which the device does not publish, arrives on an MQTT topic whenever it changes. This is verified on one unit: the script, the boot hook and the Home Assistant entity work, and the value matches a phone light meter in lux.
+The ambient-light reading, which the device does not publish, arrives on an MQTT topic whenever it changes.
 
 This guide is independent of [01-local-mqtt.md](01-local-mqtt.md): it only needs a shell and a broker.
 

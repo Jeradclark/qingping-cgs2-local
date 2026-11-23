@@ -1,6 +1,6 @@
 # 01. Local MQTT: point the device at your own broker
 
-The device publishes its readings to your MQTT broker instead of the vendor cloud, and the sensors show up in Home Assistant, verified on one unit (firmware 4.5.6_0167).
+The device publishes its readings to your MQTT broker instead of the vendor cloud, and the sensors show up in Home Assistant.
 
 ## How it works
 

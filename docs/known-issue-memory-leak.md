@@ -5,9 +5,6 @@ memory drops below 45 MB, the vendor's watchdog kills the app and restarts it
 five seconds later. Nothing breaks, but you will see occasional restarts in
 the logs, and probably short gaps in your readings.
 
-This is what we measured on one unit (firmware 4.5.6_0167, local MQTT,
-the light script, and a memory logger running). It is not a diagnosis.
-
 
 ## What the watchdog does
 
