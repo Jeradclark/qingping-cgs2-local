@@ -1,10 +1,10 @@
 # Quick start
 
-The short version of parts 1 and 2: just the steps. The guides in [docs/]docs/ have
+The short version of parts 1 and 2: just the steps. The guides in [docs/](docs/) have
 the same steps with the reasons, the checks, and how to undo each one.
 
 Before you start: this gives you root access to the device. Read
-[docs/security.md]docs/security.md first. Step 3 makes a backup.
+[docs/security.md](docs/security.md) first. Step 3 makes a backup.
 
 
 ## Part 1: send the readings to your own MQTT broker
@@ -79,8 +79,8 @@ Assistant connected to that broker.
    dialog instead, the entity is thrown away. Entities show "Unknown" until
    the next message arrives.
 
-That is all of part 1. Details: [docs/00-getting-a-shell.md]docs/00-getting-a-shell.md and
-[docs/01-local-mqtt.md]docs/01-local-mqtt.md.
+That is all of part 1. Details: [docs/00-getting-a-shell.md](docs/00-getting-a-shell.md) and
+[docs/01-local-mqtt.md](docs/01-local-mqtt.md).
 
 To undo it, repeat steps 4 and 5 with the values from the backup (on our
 unit, host=mqtt.bj.cleargrass.com and port=11883).
@@ -116,4 +116,4 @@ not published by the device, so a small script reads it and sends it.
    your TOPIC, state class Measurement, device class Illuminance, unit lx, no
    template. Click "Save changes".
 
-Details: [docs/02-light-sensor.md]docs/02-light-sensor.md.
+Details: [docs/02-light-sensor.md](docs/02-light-sensor.md).
