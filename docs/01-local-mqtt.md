@@ -1,6 +1,6 @@
 # 01. Local MQTT: point the device at your own broker
 
-**Result:** the device publishes its readings to your MQTT broker instead of the vendor cloud, and the sensors show up in Home Assistant. **Status:** verified on one unit (firmware 4.5.6_0167).
+The device publishes its readings to your MQTT broker instead of the vendor cloud, and the sensors show up in Home Assistant, verified on one unit (firmware 4.5.6_0167).
 
 ## How it works
 
@@ -10,7 +10,7 @@ This only redirects the air-quality MQTT stream described in this guide. The dev
 
 ## Prerequisites
 
-- A shell on the device ([00](00-getting-a-shell.md)) and a backup of `setting.ini`.
+- A shell on the device ([00-getting-a-shell.md](00-getting-a-shell.md)) and a backup of `setting.ini`.
 - An MQTT broker the device can reach. Ours was Mosquitto with `listener 1883` and `allow_anonymous true`. If your broker requires logins, see "Broker logins" below.
 - Home Assistant with the MQTT integration connected to the same broker.
 
@@ -101,11 +101,6 @@ The successful run changed only `host` and `port`. Our file also still contained
 ## Open risk: the "Refresh MQTT Info" button
 
 The Developer Options screen has a **Refresh MQTT Info** button. We never pressed it, and we do not know what it does. If it fetches fresh connection details from the vendor cloud, it could overwrite your `host`. The same goes for any automatic refresh we have not seen. If your host ever reverts to `mqtt.bj.cleargrass.com`, repeat the steps above, and please report when it happened.
-
-## Tested
-
-- `host`/`port` edit survived `reboot -f` and later reboots; sensors updated continuously.
-- Not tested: a full power-off, and a continuous run of 24 hours or more. We do not know whether the device ever stops publishing without a periodic command; the original article uses a 15-minute keep-alive automation. We have not needed one so far, but we have not run long enough to be sure.
 
 ## Undo
 
