@@ -1,15 +1,18 @@
 # 03. Music Assistant: use the speaker as a player
 
-Status: music plays from Music Assistant through the device's speaker on one
+Music plays from Music Assistant through the device's speaker on one
 unit (firmware 4.5.6_0167), and the boot hook starts the player after a
-reboot. See "Tested, and not tested" for what has and has not been tried.
+reboot.
 
-The device becomes a Squeezelite player. Squeezelite is an open-source
-player for the Slimproto protocol, which Music Assistant supports. It makes an
+The device becomes a [Squeezelite](https://github.com/ralph-irving/squeezelite)
+player. Squeezelite is an open-source
+player for the Slimproto protocol, which [Music Assistant](https://music-assistant.io/) supports. It makes an
 outgoing connection to Music Assistant (port 3483) and fetches the audio over
-HTTP (Music Assistant's stream port, 8097 by default). It plays through the
-device's normal ALSA speaker route. This guide is independent of parts 1 and
-2: it needs a shell ([00](00-getting-a-shell.md)) and a Music Assistant
+HTTP (Music Assistant's stream port, 8097 by default) and it plays through the
+device's normal ALSA speaker route.
+
+This guide is independent of parts 1 and
+2: it needs a shell ([00-getting-a-shell.md](00-getting-a-shell.md)) and a Music Assistant
 server.
 
 
@@ -272,15 +275,3 @@ not a binary. Build it yourself.
   calibration curve. watchdog.sh starts it and restarts it if it dies, which
   is why top shows it under the watchdog; top cuts its name to
   analyze_noise.s. Each second it briefly runs arecord, sox and awk.
-
-
-## Microphone and voice assistants: ideas only
-
-The microphone is shared through dsnoop, so a voice satellite could record
-alongside the noise sensor. Open questions: far-field quality (the array is
-tuned for a noise level, and the firmware applies a gain of 16), echo while the
-speaker plays, and the fact that the satellite projects we looked at are Python
-programs and the device has no interpreter, so the satellite would run on
-another machine and stream audio from the device. Because the device's
-debugging port is unauthenticated root access, a live microphone makes the
-network-isolation advice in [security.md](security.md) more important.
