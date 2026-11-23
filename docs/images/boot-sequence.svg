@@ -1,0 +1,55 @@
+<svg width="680" height="826" viewBox="0 0 680 826" xmlns="http://www.w3.org/2000/svg" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<title>Boot sequence on the Qingping Air Monitor 2</title>
+<desc>rcS runs each init script in order: start.sh strips execute bits from /userdata then restores them only in /userdata/bin, sets audio paths and starts core services, our own hooks run next, a Rockchip test hook stays dormant, and watchdog.sh then supervises everything on an ongoing basis.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect x="185" y="40" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="58" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">rcS</text>
+<text x="340" y="76" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">runs every S??* script in order</text>
+<line x1="340" y1="96" x2="340" y2="136" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="136" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="154" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">S50launcher</text>
+<text x="340" y="172" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">sources start.sh</text>
+<line x1="340" y1="192" x2="340" y2="232" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="232" width="310" height="56" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<text x="340" y="250" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#712B13">chmod 666 /data/* -R</text>
+<text x="340" y="268" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#993C1D">strips exec bits in all of /userdata</text>
+<line x1="340" y1="288" x2="340" y2="328" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="328" width="310" height="56" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<text x="340" y="346" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#712B13">chmod +x /data/bin/ -R</text>
+<text x="340" y="364" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#993C1D">restores exec bits, /userdata/bin only</text>
+<line x1="340" y1="384" x2="340" y2="424" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="424" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="442" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">start.sh continues</text>
+<text x="340" y="460" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">sets audio, starts core services</text>
+<line x1="340" y1="480" x2="340" y2="520" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="520" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="538" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">S90pub, S91squeezelite</text>
+<text x="340" y="556" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">our own hooks, if installed</text>
+<line x1="340" y1="576" x2="340" y2="616" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="616" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="340" y="634" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">S99_auto_reboot</text>
+<text x="340" y="652" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">inactive on this unit</text>
+<line x1="340" y1="672" x2="340" y2="712" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="185" y="712" width="310" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="730" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441">watchdog.sh</text>
+<text x="340" y="748" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">ongoing: restarts the app and services</text>
+
+<rect x="137" y="792" width="14" height="14" rx="3" fill="#B4B2A9"/>
+<text x="157" y="799" dominant-baseline="central" font-size="12" fill="#444441">on device, as expected</text>
+<rect x="353" y="792" width="14" height="14" rx="3" fill="#F0997B"/>
+<text x="373" y="799" dominant-baseline="central" font-size="12" fill="#444441">the execute-bit gotcha</text>
+<rect x="540" y="792" width="14" height="14" rx="3" fill="#B4B2A9" stroke="#5F5E5A" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="560" y="799" dominant-baseline="central" font-size="12" fill="#444441">conditional</text>
+</svg>

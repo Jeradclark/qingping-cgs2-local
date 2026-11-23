@@ -1,0 +1,5 @@
+# Scripts run on a Linux device: always LF line endings, even when checked out on Windows
+*.sh   text eol=lf
+S90pub text eol=lf
+scripts/* text eol=lf
+build/* text eol=lf

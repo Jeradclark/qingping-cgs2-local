@@ -1,0 +1,65 @@
+#!/bin/sh
+# Boot hook: starts the Squeezelite player so the device's speaker shows up in
+# Music Assistant.
+#
+# Install as /etc/init.d/S91squeezelite and make it executable. Settings come
+# from /userdata/squeezelite.conf (see squeezelite.conf.example). The vendor's
+# rcS runs every S??* script in order with "start"; this one returns at once.
+#
+# Usage: /etc/init.d/S91squeezelite start|stop|restart|status
+
+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+BIN="${BIN:-/userdata/bin/squeezelite}"
+CONF="${CONF:-/userdata/squeezelite.conf}"
+
+# Defaults; the config file overrides them.
+MA_SERVER=""
+PLAYER_NAME="Qingping"
+PLAYER_MAC=""
+OUTPUT_DEVICE="default"
+ALSA_PARAMS="150:4"
+MAX_RATE="48000"
+IDLE_CLOSE="5"
+LOG_FILE=""
+
+[ -f "$CONF" ] && . "$CONF"
+
+# A config file edited on Windows may carry carriage returns; strip them.
+for v in MA_SERVER PLAYER_NAME PLAYER_MAC OUTPUT_DEVICE ALSA_PARAMS MAX_RATE IDLE_CLOSE LOG_FILE; do
+  eval "$v=\$(printf '%s' \"\$$v\" | tr -d '\\015')"
+done
+
+running() { pgrep -f "$BIN" >/dev/null 2>&1; }
+
+start() {
+  if [ -z "$MA_SERVER" ]; then
+    echo "S91squeezelite: MA_SERVER is not set in $CONF; not starting"
+    return 0
+  fi
+  if [ ! -f "$BIN" ]; then
+    echo "S91squeezelite: $BIN not found; not starting"
+    return 0
+  fi
+  chmod +x "$BIN" 2>/dev/null
+  pkill -f "$BIN" 2>/dev/null
+  if [ -z "$PLAYER_MAC" ] && [ -r /sys/class/net/wlan0/address ]; then
+    PLAYER_MAC=$(cat /sys/class/net/wlan0/address)
+  fi
+  set -- -s "$MA_SERVER" -n "$PLAYER_NAME" -o "$OUTPUT_DEVICE"
+  [ -n "$PLAYER_MAC" ]  && set -- "$@" -m "$PLAYER_MAC"
+  [ -n "$ALSA_PARAMS" ] && set -- "$@" -a "$ALSA_PARAMS"
+  [ -n "$MAX_RATE" ]    && set -- "$@" -r "$MAX_RATE"
+  [ -n "$IDLE_CLOSE" ]  && set -- "$@" -C "$IDLE_CLOSE"
+  [ -n "$LOG_FILE" ]    && set -- "$@" -f "$LOG_FILE" -d slimproto=info -d output=info
+  ( "$BIN" "$@" >/dev/null 2>&1 & )
+}
+
+case "$1" in
+  start)   start ;;
+  stop)    pkill -f "$BIN" 2>/dev/null ;;
+  restart) pkill -f "$BIN" 2>/dev/null; sleep 1; start ;;
+  status)  if running; then echo "squeezelite: running"; else echo "squeezelite: not running"; fi ;;
+  *)       echo "Usage: $0 start|stop|restart|status" ;;
+esac
+exit 0

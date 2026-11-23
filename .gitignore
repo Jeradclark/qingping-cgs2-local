@@ -1,0 +1,23 @@
+# Secrets and device backups: never commit these
+private/
+setting.ini*
+*.bak
+
+# Downloads and extracted archives
+*.tar.gz
+*.zip
+sendspin-extract/
+sl-*/
+sl1612/
+
+# Local settings with your own addresses
+squeezelite.conf
+
+# Build outputs (do not commit built binaries; see docs/03-music-assistant.md)
+build/out/
+build/squeezelite
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/

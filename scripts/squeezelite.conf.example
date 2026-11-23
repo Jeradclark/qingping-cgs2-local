@@ -1,0 +1,36 @@
+# Settings for /etc/init.d/S91squeezelite
+#
+# Copy this file to /userdata/squeezelite.conf on the device and edit it.
+# It is plain shell syntax: NAME="value", with no spaces around the equals
+# sign. Use Unix (LF) line endings if you can.
+
+# Required: the IP address of your Music Assistant server. Use an address,
+# not a host name; host names may not resolve in the static build.
+MA_SERVER="YOUR_MUSIC_ASSISTANT_IP"
+
+# The name shown in Music Assistant.
+PLAYER_NAME="Qingping"
+
+# The player's ID in Music Assistant. Leave empty to use the device's Wi-Fi
+# MAC address. If this changes, Music Assistant treats it as a new player.
+PLAYER_MAC=""
+
+# The ALSA output device. "default" is the device's own speaker route.
+OUTPUT_DEVICE="default"
+
+# ALSA buffer in milliseconds, then the number of periods. The built-in
+# default of 40:4 gave occasional skips on our unit; 150:4 did not. If you
+# still hear skips, raise the first number.
+ALSA_PARAMS="150:4"
+
+# The highest sample rate offered to Music Assistant. The speaker hardware
+# runs at 48000, so higher rates would only be resampled on the device.
+MAX_RATE="48000"
+
+# Seconds of silence before the speaker is released, so that the device's own
+# sounds can use it.
+IDLE_CLOSE="5"
+
+# Optional log file, for example /userdata/squeezelite.log. Leave empty for
+# no log. The file grows without limit while the player runs.
+LOG_FILE=""

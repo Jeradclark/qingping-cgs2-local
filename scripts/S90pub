@@ -1,0 +1,15 @@
+#!/bin/sh
+# Boot hook: starts /userdata/pub.sh in the background.
+# Install as /etc/init.d/S90pub and make it executable. The vendor's rcS runs
+# every S??* file in order with "start"; ours returns immediately.
+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
+case "$1" in
+  start)
+    pkill -f '/userdata/pub\.sh' 2>/dev/null
+    [ -f /userdata/pub.sh ] && ( sh /userdata/pub.sh >/dev/null 2>&1 & )
+    ;;
+  stop)
+    pkill -f '/userdata/pub\.sh'
+    ;;
+esac
+exit 0
