@@ -1,6 +1,8 @@
 # 02. Light sensor to MQTT and Home Assistant
 
-**Result:** the ambient-light reading, which the device does not publish, arrives on an MQTT topic whenever it changes. **Status:** verified on one unit: the script, the boot hook and the Home Assistant entity work, and the value matches a phone light meter in lux. This guide is independent of [01](01-local-mqtt.md): it only needs a shell and a broker.
+The ambient-light reading, which the device does not publish, arrives on an MQTT topic whenever it changes. This is verified on one unit: the script, the boot hook and the Home Assistant entity work, and the value matches a phone light meter in lux.
+
+This guide is independent of [01-local-mqtt.md](01-local-mqtt.md): it only needs a shell and a broker.
 
 ## Findings
 
@@ -82,10 +84,3 @@ These are edited directly in `pub.sh`:
   retained, so this is how Home Assistant gets a value back after it restarts.
 
 In a steady room the script sends about one message a minute.
-
-## Notes and open questions
-
-- Bright light has not been tested, so we do not know where the value tops out.
-- We do not know what `pmv` (it read `-1` throughout) or `tvoc` (a large number, possibly a raw signal) mean. `etvoc` appears to be the VOC index the screen shows.
-- CPU use of the loop was not measured.
-- A firmware update may remove `/etc/init.d/S90pub`, since it lives on the root filesystem. `/userdata/pub.sh` will probably survive, but we have not tested an update.
