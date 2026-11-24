@@ -19,7 +19,7 @@ We turned on both switches. We did not test whether either one alone is enough, 
 
 The About screen looks like this (serial number and Wi-Fi MAC blacked out). It also shows the model, the firmware version, and whether a PM sensor is installed:
 
-![About screen listing device name, model CGS2, firmware version 4.5.6_0167 and PM sensor not installed, with the serial number and Wi-Fi MAC blacked out](images/00-about-screen.jpg)
+<img src="images/00-about-screen.jpg" alt="About screen listing device name, model CGS2, firmware version 4.5.6_0167 and PM sensor not installed, with the serial number and Wi-Fi MAC blacked out" width="700">
 
 **The Developer Options screen shows secrets.** It displays the Mi Home identifiers and key, and the MQTT user name and topics (which contain the device's MAC address and the product key). Do not post photos or screenshots of it without blacking those lines out. The photos below have been redacted with solid black boxes and re-saved without metadata.
 
