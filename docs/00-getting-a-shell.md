@@ -25,13 +25,19 @@ The About screen looks like this (serial number and Wi-Fi MAC blacked out). It a
 
 ### The screen, top to bottom
 
-![Developer Options, top: the Use Http switch, the server type, and the MQTT connection status with the user name blacked out](images/01-top-server-and-mqtt-status.jpg)
+<img src="images/01-top-server-and-mqtt-status.jpg" alt="Developer Options, top: the Use Http switch, the server type, and the MQTT connection status with the user name blacked out" width="700">
 
-![Developer Options, scrolled: MQTT user name and topics blacked out, with the Refresh MQTT Info and Report RealTime Data buttons](images/02-mqtt-topics-and-buttons.jpg)
+<br>
 
-![Developer Options, scrolled: Mi Home identifiers blacked out, the Adbd Debugging switch and the charging switch](images/03-mi-home-info-adbd-charging.jpg)
+<img src="images/02-mqtt-topics-and-buttons.jpg" alt="Developer Options, scrolled: MQTT user name and topics blacked out, with the Refresh MQTT Info and Report RealTime Data buttons" width="700">
 
-![Developer Options, bottom: Other Operations buttons and the Enable Wifi Debug Mode switch](images/04-other-operations-wifi-debug.jpg)
+<br>
+
+<img src="images/03-mi-home-info-adbd-charging.jpg" alt="Developer Options, scrolled: Mi Home identifiers blacked out, the Adbd Debugging switch and the charging switch" width="700">
+
+<br>
+
+<img src="images/04-other-operations-wifi-debug.jpg" alt="Developer Options, bottom: Other Operations buttons and the Enable Wifi Debug Mode switch" width="700">
 
 ## What else is on the Developer Options screen
 
