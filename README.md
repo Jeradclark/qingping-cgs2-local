@@ -1,12 +1,19 @@
 # qingping-cgs2-local
 
-Local control of the **Qingping Air Monitor Gen 2 (CGS2)**: keep its readings on your own network, add sensors the device does not publish, and (experimentally) use its speaker.
+The **Qingping Air Monitor Gen 2** can do more than the stock firmware exposes.
 
-> **Read this first.** Everything here uses root access to a device the vendor does not support. You can lose features, break the device, or open a security hole on your network. Read [docs/security.md](docs/security.md) before you start. This is hobby documentation from one person's unit; it comes with no warranty.
+This project enables:
 
-**Short on time?** [QUICKSTART.md](QUICKSTART.md) has just the steps, without the explanations.
+- Local Home Assistant integration
+- MQTT on your own broker
+- The hidden ambient light sensor
+- Music Assistant speaker playback
 
-This project grew out of John Lose's article (in German), which showed that the device can be pointed at a local MQTT broker:
+> **Read this first.** Everything here uses root access to a device the vendor does not support. You can lose features, break the device, or open a security hole on your network. Read the [Security Guide](docs/security.md) before you start. This is hobby documentation from one person's unit; it comes with no warranty.
+
+**Short on time?** See [Quick Start](QUICKSTART.md) for just the steps, without the explanations.
+
+This project grew out of an article by John Lose(in German), which showed that the device can be pointed at a local MQTT broker:
 <https://www.johnlose.de/2026/02/quingping-air-monitor-gen-2-cgs2-an-homeassistant/>
 Thank you to the author for the starting point. (The vendor's name is spelled "Qingping"; the article's URL has a typo, so search for both.)
 
@@ -41,7 +48,6 @@ Other firmware versions or hardware revisions may differ. If you try this, pleas
 
 - Editing `setting.ini` while the app is running does nothing: the app rewrites the file from memory, and a watchdog restarts the app within seconds if you kill it. Stop the **watchdog first**, then the app. ([docs/01](docs/01-local-mqtt.md))
 - The device runs `chmod 666` over `/userdata` at every boot, which strips execute bits. Run your scripts with `sh script`, or keep binaries in `/userdata/bin`, which gets its execute bit back. ([docs/how-it-works.md](docs/how-it-works.md))
-- When you create entities in Home Assistant's MQTT device wizard, click **Save changes** at the very end, or the entity is discarded.
 - Shell scripts must have Unix (LF) line endings. This repo includes a `.gitattributes` for that. ([docs/troubleshooting.md](docs/troubleshooting.md))
 
 ## Secrets
