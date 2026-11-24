@@ -5,7 +5,7 @@ The **Qingping Air Monitor Gen 2** can do more than the stock firmware exposes.
 This project enables:
 
 - Local Home Assistant integration
-- MQTT on your own broker
+- MQTT on your own broker - no cloud or app.
 - The hidden ambient light sensor
 - Music Assistant speaker playback
 
@@ -13,19 +13,19 @@ This project enables:
 
 **Short on time?** See [Quick Start](QUICKSTART.md) for just the steps, without the explanations.
 
-This project grew out of an article by John Lose(in German), which showed that the device can be pointed at a local MQTT broker:
+This project grew out of an article by John Lose (in German), which showed that the device can be pointed at a local MQTT broker:
 <https://www.johnlose.de/2026/02/quingping-air-monitor-gen-2-cgs2-an-homeassistant/>
 Thank you to the author for the starting point. (The vendor's name is spelled "Qingping"; the article's URL has a typo, so search for both.)
 
 ## The parts
 
-Do [docs/00-getting-a-shell.md](docs/00-getting-a-shell.md) first. After that the parts are independent, so pick the ones you want.
+Do [Getting a Shell](docs/00-getting-a-shell.md) first. After that the parts are independent, so pick the ones you want.
 
 | Part | Guide | What you get | Status |
 |---|---|---|---|
-| 1 | [docs/01-local-mqtt.md](docs/01-local-mqtt.md) | The device publishes its readings to **your** MQTT broker instead of the vendor cloud; sensors appear in Home Assistant | Verified on one unit |
-| 2 | [docs/02-light-sensor.md](docs/02-light-sensor.md) | The ambient-light reading in lux (not published by the device) pushed to MQTT on change, plus a boot hook | Verified on one unit |
-| 3 | [docs/03-music-assistant.md](docs/03-music-assistant.md) | Use the speaker as a Music Assistant player | Verified on one unit, including starting at boot |
+| 1 | [01 Local MQTT](docs/01-local-mqtt.md) | The device publishes its readings to **your** MQTT broker instead of the vendor cloud; sensors appear in Home Assistant | Verified on one unit |
+| 2 | [02 Light Sensor](docs/02-light-sensor.md) | The ambient-light reading in lux (not published by the device) pushed to MQTT on change, plus a boot hook | Verified on one unit |
+| 3 | [03 Music Assistant](docs/03-music-assistant.md) | Use the speaker as a Music Assistant player | Verified on one unit, including starting at boot |
 
 Background and reference:
 - [docs/how-it-works.md](docs/how-it-works.md): what runs on the device, the boot sequence, the gotchas
